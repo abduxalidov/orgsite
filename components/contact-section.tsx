@@ -18,7 +18,7 @@ function ContactButton({ icon, label, sublabel, href, delay }: ContactButtonProp
       target="_blank"
       rel="noopener noreferrer"
       className="animate-on-scroll opacity-0 duration-700 group flex items-center gap-4 p-5 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:border-primary hover:bg-card/80 hover:scale-105 hover:glow-sm transition-all"
-      style={{ animationDelay: ${delay}ms }}
+      style={{ animationDelay: `${delay}ms `}}
     >
       <div className="p-3 rounded-xl bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
         {icon}
