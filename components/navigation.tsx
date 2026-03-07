@@ -24,11 +24,11 @@ export function Navigation() {
 
   return (
     <header
-      className={fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/80 backdrop-blur-lg border-b border-border"
-          : "bg-transparent"
-      }}
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+  isScrolled
+    ? "bg-background/80 backdrop-blur-lg border-b border-border"
+    : "bg-transparent"
+}`}
     >
       <nav className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
