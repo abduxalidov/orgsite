@@ -1,55 +1,56 @@
-import type { Metadata, Viewport } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import type { Metadata, Viewport } from "next"
+import { Inter, Space_Grotesk } from "next/font/google"
+import { Analytics } from "@vercel/analytics/next"
+import "./globals.css"
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  variable: '--font-inter'
-});
+  variable: "--font-inter",
+})
 
-const spaceGrotesk = Space_Grotesk({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
-  variable: '--font-space-grotesk'
-});
+  variable: "--font-space-grotesk",
+})
 
 export const metadata: Metadata = {
-  title: 'Abduxalidov Abdulloh | Web Developer & SMM Mutaxassisi',
-  description: 'Bizneslar uchun zamonaviy web saytlar, mobil ilovalar va SMM xizmatlari yarataman. O\'zbekiston.',
-  generator: 'v0.app',
+  title: "Abduxalidov Abdulloh | Web Developer & SMM Mutaxassisi",
+  description:
+    "Bizneslar uchun zamonaviy web saytlar, mobil ilovalar va SMM xizmatlari yarataman. O'zbekiston.",
+  generator: "v0.app",
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
       },
       {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
       },
       {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: "/icon.svg",
+        type: "image/svg+xml",
       },
     ],
-    apple: '/apple-icon.png',
+    apple: "/apple-icon.png",
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#0a0f1a',
-  width: 'device-width',
+  themeColor: "#0a0f1a",
+  width: "device-width",
   initialScale: 1,
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
     <html lang="uz" className="dark">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} `font-sans antialiased}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
