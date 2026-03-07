@@ -22,7 +22,7 @@ function PricingCard({ icon, title, items, color, delay }: PricingCardProps) {
       className="animate-on-scroll opacity-0 duration-700 group relative p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:border-primary/50 transition-all"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className={absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl} />
+      <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl`} />
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 rounded-xl bg-primary/10 text-primary">
