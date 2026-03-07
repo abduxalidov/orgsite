@@ -104,9 +104,9 @@ export function AiChat() {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={flex gap-3 ${
-                  message.role === "user" ? "flex-row-reverse" : ""
-                }}
+                 className={`flex gap-3 ${
+              message.role === "user" ? "flex-row-reverse" : ""
+              }`}
               >
                 <div
                   className={p-2 rounded-xl ${
