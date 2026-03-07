@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="uz" className="dark">
-      <body className={${inter.variable} ${spaceGrotesk.variable} font-sans antialiased}>
+      <body className={`${inter.variable} ${spaceGrotesk.variable} `font-sans antialiased}>
         {children}
         <Analytics />
       </body>
