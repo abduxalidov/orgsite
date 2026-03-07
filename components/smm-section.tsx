@@ -22,7 +22,10 @@ function PricingCard({ icon, title, items, color, delay }: PricingCardProps) {
       className="animate-on-scroll opacity-0 duration-700 group relative p-6 rounded-2xl bg-card/50 border border-border backdrop-blur-sm hover:border-primary/50 transition-all"
       style={{ animationDelay: `${delay}ms` }}
     >
-      <div className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl`} />
+      <div
+        className={`absolute inset-0 bg-gradient-to-br ${color} opacity-0 group-hover:opacity-100 transition-opacity rounded-2xl`}
+      />
+
       <div className="relative z-10">
         <div className="flex items-center gap-3 mb-6">
           <div className="p-3 rounded-xl bg-primary/10 text-primary">
@@ -30,6 +33,7 @@ function PricingCard({ icon, title, items, color, delay }: PricingCardProps) {
           </div>
           <h3 className="text-xl font-bold text-foreground">{title}</h3>
         </div>
+
         <div className="space-y-4">
           {items.map((item, index) => (
             <div
@@ -37,7 +41,9 @@ function PricingCard({ icon, title, items, color, delay }: PricingCardProps) {
               className="flex items-center justify-between p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-colors"
             >
               <span className="text-sm text-foreground">{item.name}</span>
-              <span className="text-sm font-semibold text-primary whitespace-nowrap ml-2">{item.price}</span>
+              <span className="text-sm font-semibold text-primary whitespace-nowrap ml-2">
+                {item.price}
+              </span>
             </div>
           ))}
         </div>
@@ -54,15 +60,21 @@ export function SmmSection() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in", "fade-in", "slide-in-from-bottom-8")
+            entry.target.classList.add(
+              "animate-in",
+              "fade-in",
+              "slide-in-from-bottom-8"
+            )
           }
         })
       },
       { threshold: 0.1 }
     )
 
-    const elements = containerRef.current?.querySelectorAll(".animate-on-scroll")
-    elements?.forEach((el) => observer.observe(el))
+    const elements =
+      containerRef.current?.querySelectorAll(".animate-on-scroll")
+
+    elements?.forEach((el) => observer.observe(el as HTMLElement))
 
     return () => observer.disconnect()
   }, [])
@@ -105,7 +117,52 @@ export function SmmSection() {
       id="smm"
       className="relative py-24 px-4 overflow-hidden"
     >
-      {/* Background effects */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
 
       <div className="relative z-10 max-w-6xl mx-auto">
+
+        <div className="text-center mb-16">
+          <h2 className="animate-on-scroll opacity-0 duration-700 text-3xl md:text-5xl font-bold mb-4">
+            <span className="text-primary text-glow">SMM Xizmatlari</span>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-6">
+
+          <PricingCard
+            icon={<MessageCircle className="w-6 h-6" />}
+            title="Telegram Xizmatlari"
+            items={telegramServices}
+            color="from-blue-500/20 to-transparent"
+            delay={100}
+          />
+
+          <PricingCard
+            icon={<Instagram className="w-6 h-6" />}
+            title="Instagram Xizmatlari"
+            items={instagramServices}
+            color="from-pink-500/20 to-transparent"
+            delay={200}
+          />
+
+          <PricingCard
+            icon={<Star className="w-6 h-6" />}
+            title="Telegram Stars"
+            items={telegramStars}
+            color="from-yellow-500/20 to-transparent"
+            delay={300}
+          />
+
+          <PricingCard
+            icon={<Crown className="w-6 h-6" />}
+            title="Telegram Premium"
+            items={telegramPremium}
+            color="from-purple-500/20 to-transparent"
+            delay={400}
+          />
+
+        </div>
+      </div>
+    </section>
+  )
+        }
